@@ -43,7 +43,6 @@
 }
 
 .menu {
-  // @extend %museo-500;
   font-size: 16px;
   line-height: 19px;
 
@@ -65,7 +64,8 @@
     padding-right: 13px;
     transition: .3s;
 
-    &:hover {
+    &:hover,
+    &.active {
       color: #F08B98;
 
       svg path {
@@ -109,6 +109,9 @@
     path {
       transition: stroke .3s;
     }
+    &.on{
+      transform: rotate(180deg)
+    }
   }
 
   &__dropdown {
@@ -119,7 +122,7 @@
     top: 70px;
     border-bottom: 1px solid #F08B98;
     border-top: 1px solid #F08B98;
-    transform: translateY(-200%);
+    transform: translateY(-1000px);
     transition: transform .7s;
 
   }
@@ -146,6 +149,7 @@
     &:hover {
       color: #F08B98;
     }
+
   }
 
   &__inner-img {
@@ -179,7 +183,7 @@
     height: 200px;
     background-color: rgba(240, 139, 152, 0.15);
     position: absolute;
-    right: -125px;
+    right: -100px;
     top: -40px;
   }
 }
