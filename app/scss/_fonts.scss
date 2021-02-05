@@ -1,0 +1,22 @@
+// @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&family=Rubik:wght@400;500&display=swap');
+@font-face{
+  font-family: 'Museo Cyrl';
+  font-weight: 500;
+  font-style: normal;
+  src: url('../fonts/MuseoCyrl-500.otf') format('otf'), url('../fonts/MuseoCyrl-500.woff') format('woff'), url('../fonts/MuseoCyrl-500.woff2') format('woff2');
+  font-display: swap;
+}
+@font-face{
+  font-family: 'Museo Cyrl';
+  font-weight: 700;
+  font-style: normal;
+  src: url('../fonts/MuseoCyrl-700.otf') format('otf'), url('../fonts/MuseoCyrl-700.woff') format('woff'), url('../fonts/MuseoCyrl-700.woff2') format('woff2');
+  font-display: swap;
+}
+@font-face{
+  font-family: 'Museo Sans Cyrl';
+  font-weight: 500;
+  font-style: normal;
+  src: url('../fonts/MuseoSansCyrl-500.otf') format('otf'), url('../fonts/MuseoSansCyrl-500.woff') format('woff'), url('../fonts/MuseoSansCyrl-500.woff2') format('woff2');
+  font-display: swap;
+}
