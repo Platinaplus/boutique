@@ -12,6 +12,10 @@ input:-webkit-autofill:active {
 }
 body{
   @extend %museo-500;
+  &.noScroll{
+    max-height: 100vh;
+    overflow: hidden;
+  }
 }
 .container-shop{
   max-width: 1055px;

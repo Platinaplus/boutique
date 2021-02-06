@@ -1,0 +1,212 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, .9);
+
+  &.visible {
+    display: flex;
+  }
+
+  &__dialog {
+    border-radius: 15px;
+    height: 560px;
+    overflow: hidden;
+  }
+
+  &__content {
+    padding: 20px 6px 22px 30px;
+    max-width: 505px;
+    height: 560px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    background: #FFFFFF;
+    z-index: 200;
+  }
+
+  &__title {
+    font-size: 28px;
+    line-height: 34px;
+    margin-bottom: 15px;
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 19px;
+    position: relative;
+
+    &::after {
+      content: "";
+      display: none;
+      width: 20px;
+      height: 20px;
+      background-image: url('../images/error.png');
+      background-repeat: no-repeat;
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(7%);
+    }
+
+    &::before {
+      display: none;
+      content: "";
+      width: 20px;
+      height: 20px;
+      background-image: url('../images/ok.png');
+      background-repeat: no-repeat;
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(7%);
+    }
+
+    &.valid {
+      &::before {
+        display: block;
+      }
+      &::after {
+        display: none;
+      }
+      .modal__error{
+        display: none;
+      }
+    }
+
+    &.invalid {
+      &::after {
+        display: block;
+      }
+      &::before {
+        display: none;
+      }
+      .modal__error{
+        display: block;
+      }
+    }
+  }
+
+  &__error {
+    @extend %museoSans;
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 10px;
+    line-height: 16px;
+    color: #FF304C;
+  }
+
+  &__input,
+  &__textarea {
+    box-sizing: border-box;
+    width: 440px;
+    height: 50px;
+    display: block;
+    padding: 13px 20px;
+    border-radius: 100px;
+    background: rgba(240, 139, 152, 0.05);
+    border: 2px solid rgba(240, 139, 152, 0.3);
+    margin-top: 5px;
+    outline-color: rgba(240, 139, 152, 0.3);
+  }
+
+  &__textarea {
+    height: 246px;
+    border-radius: 25px;
+    resize:none;
+  }
+
+  &__agree {
+    display: block;
+    @extend %museoSans;
+    font-size: 12px;
+    line-height: 16px;
+    max-width: 407px;
+  }
+
+  &__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer
+  }
+
+  &__checkbox-hide {
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    position: absolute;
+
+    &:checked+.modal__checkbox {
+      background: rgba(240, 139, 152, 0.05);
+
+      &::after {
+        content: "\2714";
+        position: absolute;
+        top: -2px;
+        left: 3px;
+      }
+    }
+  }
+
+  &__checkbox {
+    display: block;
+    border: 2px solid #F08B98;
+    border-radius: 6px;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+
+  &__label--text {
+    display: flex;
+
+    &::after,
+    &::before {
+      display: none;
+    }
+  }
+
+  &__label--textarea {
+
+    &:before,
+    &:after {
+      display: none;
+    }
+  }
+
+  &__btn {
+    width: 300px;
+    height: 50px;
+    background: #F08B98;
+    opacity: .2;
+    color: #FFFFFF;
+    border-radius: 100px;
+    cursor: default;
+    font-size: 16px;
+    line-height: 19px;
+
+    &.able {
+      opacity: 1;
+      cursor: pointer;
+    }
+  }
+}
+.mCSB_dragger_bar{
+  background-color:#F08B98 !important;
+  width: 4px !important;
+}

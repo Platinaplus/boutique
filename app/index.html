@@ -148,7 +148,7 @@
     </div>
   </ul>
   </div>
-  <div class="modal">
+  <div id = "myModal" class="modal">
     <div class="modal__dialog">
       <div class="modal__content">
         <form class="modal__form" action="#">
@@ -161,28 +161,30 @@
           </div>
           <div class="modal__title">Напиши нам</div>
           <label class="modal__label" for="">
-            Имя:
+            Имя: <span class="modal__error">неверно заполнено Имя</span>
             <input class="modal__input" placeholder="" name="name" type="text" required>
           </label>
           <label class="modal__label" for="">
-            Телефон:
+            Телефон: <span class="modal__error">неверно заполнен телефон</span>
             <input class="modal__input" placeholder="" name="phone" type="tel" required>
           </label>
           <label class="modal__label" for="">
-            Эл. почта:
+            Эл. почта: <span class="modal__error">неверно заполнена почта</span>
             <input class="modal__input" placeholder="" name="email" type="email" required>
           </label>
-          <label class="modal__label" for="">
+          <label class="modal__label modal__label--textarea" for="">
             Сообщение:
-            <input class="modal__input" placeholder="" name="text" type="text" required>
+            <textarea class="modal__textarea" name="text" type="text"></textarea>
           </label>
-          <label class="form__label">
-            <input class="modal__checkbox-hide" type="checkbox" class="form__agree">
-            <span class="form__checkbox"></span>
-            Проставляя «галку» и далее нажимая кнопку «Принимаю», я даю согласие в его полном изложении на обработку
-            через сайт своих персональных данных.
+          <label class="modal__label modal__label--text">
+            <input class="modal__checkbox-hide" name ="check" type="checkbox">
+            <span class="modal__checkbox"></span>
+            <span class="modal__agree">
+              Проставляя «галку» и далее нажимая кнопку «Принимаю», я даю согласие в его полном изложении на обработку
+              через сайт своих персональных данных.
+            </span>
           </label>
-          <button class="btn modal__btn " type="submit" disabled>Отправить</button>
+          <button class="modal__btn" type="submit" disabled>Отправить</button>
         </form>
       </div>
     </div>
