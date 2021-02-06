@@ -1,15 +1,3 @@
-// const menu = document.querySelectorAll(".menu__link");
-// const drop = document.querySelector(".menu__dropdown");
-// console.log(menu);
-// for (let i = 0; i < menu.length; i++) {
-//   menu[i].addEventListener("mouseover", (e) => {
-//     console.log(menu[i]);
-//     drop.classList.add("show");
-//     drop.addEventListener("mouseout", (e) => {
-//       drop.classList.remove("show");
-//     });
-//   });
-// }
 function Drop(src, alt, title, parent, ...classes) {
   this.src = src;
   this.alt = alt;
@@ -70,6 +58,7 @@ const reset = function (selector, items) {
   container.innerHTML = "";
   for(let i=0; i < items.length; i++){
     items[i].classList.remove('active')
+    items[i].children[0].classList.remove('on')
   }
 };
 
@@ -91,15 +80,18 @@ for (let i = 0; i < menu.length; i++) {
       ).render();
       dropdown.classList.add("show");
       arrow.classList.add("on");
-      // setTimeout(function () {
-      //   dropdown.addEventListener("mouseout", () => {
-      //     dropdown.classList.remove("show");
-      //     arrow.classList.remove("on");
-      //   }, 600);
-      // });
+      target.classList.add("active");
+      document.addEventListener("click", function (e) {
+        console.log(e.target);
+        if (e.target != dropdown && e.target != menu[i]) {
+          dropdown.classList.remove("show");
+          arrow.classList.remove("on");
+          target.classList.remove("active");
+        }
+      });
     }
     if (target.getAttribute("data-name") == "equp") {
-      reset(".container-drop");
+      reset(".container-drop", menu);
       new Drop(
         "images/menu.jpg",
         "акция",
@@ -108,15 +100,18 @@ for (let i = 0; i < menu.length; i++) {
       ).render();
       dropdown.classList.add("show");
       arrow.classList.add("on");
-      // setTimeout(function () {
-      //   dropdown.addEventListener("mouseout", () => {
-      //     dropdown.classList.remove("show");
-      //     arrow.classList.remove("on");
-      //   }, 600);
-      // });
+      target.classList.add("active");
+      document.addEventListener("click", function (e) {
+        console.log(e.target);
+        if (e.target != dropdown && e.target != menu[i]) {
+          dropdown.classList.remove("show");
+          arrow.classList.remove("on");
+          target.classList.remove("active");
+        }
+      });
     }
     if (target.getAttribute("data-name") == "bijou") {
-      reset(".container-drop");
+      reset(".container-drop", menu);
       new Drop(
         "images/menu.jpg",
         "акция",
@@ -125,16 +120,24 @@ for (let i = 0; i < menu.length; i++) {
       ).render();
       dropdown.classList.add("show");
       arrow.classList.add("on");
-      // setTimeout(function () {
-      //   dropdown.addEventListener("mouseout", () => {
-      //     dropdown.classList.remove("show");
-      //     arrow.classList.remove("on");
-      //   }, 600);
-      // });
+      target.classList.add("active");
+      document.addEventListener("click", function (e) {
+        console.log(e.target);
+        if (e.target != dropdown && e.target != menu[i]) {
+          dropdown.classList.remove("show");
+          arrow.classList.remove("on");
+          target.classList.remove("active");
+        }
+      });
     }
     if (target.getAttribute("data-name") == "blog") {
-      reset(".container-drop");
-      new Drop("images/menu.jpg", "акция", "Блог", ".container-drop").render();
+      reset(".container-drop", menu);
+      new Drop(
+        "images/menu.jpg", 
+        "акция", 
+        "Блог", 
+        ".container-drop"
+        ).render();
       dropdown.classList.add("show");
       arrow.classList.add("on");
       target.classList.add("active");
@@ -149,3 +152,34 @@ for (let i = 0; i < menu.length; i++) {
     }
   });
 }
+
+const overlay = document.querySelector('.overlay');
+const video = document.querySelector('.video');
+const klass = document.querySelector('.class');
+
+function fadeOutOnScroll(element) {
+	if (!element) {
+		return;
+	}
+	
+  const distanceToTop = klass.scrollTop ;
+	const elementHeight = element.offsetHeight;
+	const scrollTop = document.documentElement.scrollTop;
+  
+	let opacity = 1;
+	
+	if (scrollTop > distanceToTop) {
+		opacity = .4-(scrollTop - distanceToTop) /elementHeight ;
+	}
+
+	if (opacity ) {
+		element.style.opacity = opacity;
+	}
+}
+
+function scrollHandler() {
+	fadeOutOnScroll(overlay);
+	fadeOutOnScroll(video);
+}
+
+window.addEventListener('scroll', scrollHandler);

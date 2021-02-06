@@ -13,3 +13,8 @@ input:-webkit-autofill:active {
 body{
   @extend %museo-500;
 }
+.container-shop{
+  max-width: 1055px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
