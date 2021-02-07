@@ -1,4 +1,4 @@
-#myVideo {
+.video {
   position: fixed;
   right: 0;
   bottom: 0;
@@ -16,6 +16,7 @@
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.132586);
   width: 100%;
   padding: 10px 0;
+  transition: all .3s;
 
   &__inner {
     display: flex;
@@ -23,24 +24,73 @@
     align-items: center;
   }
 
-  &.scroll {
-    position: fixed;
-  }
+    &.scroll {
+      position: fixed;
+    }
 
   &__btn {
-    display: none;
+    position: relative;
+    width: 23px;
+    height: 13px;
+    padding: 10px;
+    outline: none;
 
+    &::after{
+      content:"";
+      background-image: url('../images/burger.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      width: 23px;
+      height: 13px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    &::before{
+      content:"";
+      background-image: url('../images/close.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+    }
+    display: none;
     @media (max-width: 1000px) {
       display: block;
     }
-   
+    &.close{
+      &::after{
+        display: none;
+      }
+      &::before{
+       display: block;
+      }
+      
+    }
   }
+
+  &__btn-close {
+    display: none;
+  }
+
   @media (max-width: 600px) {
     z-index: 999;
   }
+
   @media (max-width: 500px) {
-    background:  rgba(255, 255, 255, 0);
-    box-shadow:none;
+    background: rgba(255, 255, 255, 0);
+    box-shadow: none;
+
+    &.up {
+      background: rgba(255, 255, 255, 1);
+      box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.132586);
+    }
   }
 }
 
@@ -61,15 +111,13 @@
     background-size: cover;
     background-position: 0 0;
   }
+
   @media (max-width: 450px) {
     background-image: url('../images/xsmobile.jpg');
   }
-  @media (max-width: 350px) {
-    background-position: -45px 0;
-  }
 }
 
-.overlay__mob{
+.overlay__mob {
   min-width: 100%;
   min-height: 100vh;
   position: fixed;
@@ -79,6 +127,7 @@
   left: 0;
   background: rgba(0, 0, 0, 0.12);
   display: none;
+
   @media (max-width: 600px) {
     display: block;
   }
@@ -92,6 +141,22 @@
   align-items: center;
   min-width: 100%;
   min-height: 100vh;
+
+  @media (max-width: 420px) {
+    min-height: 118vh;
+  }
+
+  @media (max-width: 330px) {
+    min-height: 125vh;
+  }
+
+  @media (max-height: 720px) {
+    min-height: 125vh;
+
+    @media (max-width: 420px) {
+      min-height: 120vh;
+    }
+  }
 }
 
 .menu {
@@ -299,14 +364,16 @@
     font-size: 72px;
     line-height: 84px;
     margin-bottom: 15px;
+
     @media (max-width:600px) {
       font-size: 50px;
     }
+
     @media (max-width:350px) {
       font-size: 36px;
       line-height: 50px;
     }
-    
+
   }
 
   &__btn {
@@ -398,6 +465,7 @@
 
     @media (max-width: 780px) {
       font-size: 14px;
+      max-width: 100px;
     }
   }
 

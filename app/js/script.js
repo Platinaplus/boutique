@@ -56,9 +56,9 @@ function Drop(src, alt, title, parent, ...classes) {
 const reset = function (selector, items) {
   const container = document.querySelector(selector);
   container.innerHTML = "";
-  for(let i=0; i < items.length; i++){
-    items[i].classList.remove('active')
-    items[i].children[0].classList.remove('on')
+  for (let i = 0; i < items.length; i++) {
+    items[i].classList.remove("active");
+    items[i].children[0].classList.remove("on");
   }
 };
 
@@ -66,126 +66,147 @@ const menu = Array.from(document.querySelectorAll(".menu__link"));
 const dropdown = document.querySelector(".menu__dropdown");
 
 for (let i = 0; i < menu.length; i++) {
-  menu[i].addEventListener("mouseover", 
-  function (e) {
-  e.preventDefault();
-  const target = e.target;
-  const arrow = target.children[0];
-  if (target.getAttribute("data-name") == "cosmetic") {
-    reset(".container-drop", menu);
-    new Drop(
-      "images/menu.jpg",
-      "акция",
-      "Косметика",
-      ".container-drop"
-    ).render();
-    dropdown.classList.add("show");
-    arrow.classList.add("on");
-    target.classList.add("active");
-    document.addEventListener("click", function (e) {
-      console.log(e.target);
-      if (e.target != dropdown && e.target != (document.querySelector('.menu__dropdown-inner'))) {
-        dropdown.classList.remove("show");
-        arrow.classList.remove("on");
-        target.classList.remove("active");
-      }
-    });
-  }
-  if (target.getAttribute("data-name") == "equp") {
-    reset(".container-drop", menu);
-    new Drop(
-      "images/menu.jpg",
-      "акция",
-      "Оборудование",
-      ".container-drop"
-    ).render();
-    dropdown.classList.add("show");
-    arrow.classList.add("on");
-    target.classList.add("active");
-    document.addEventListener("click", function (e) {
-      console.log(e.target);
-      if (e.target != dropdown && e.target != (document.querySelector('.menu__dropdown-inner'))) {
-        dropdown.classList.remove("show");
-        arrow.classList.remove("on");
-        target.classList.remove("active");
-      }
-    });
-  }
-  if (target.getAttribute("data-name") == "bijou") {
-    reset(".container-drop", menu);
-    new Drop(
-      "images/menu.jpg",
-      "акция",
-      "Украшения",
-      ".container-drop"
-    ).render();
-    dropdown.classList.add("show");
-    arrow.classList.add("on");
-    target.classList.add("active");
-    document.addEventListener("click", function (e) {
-      console.log(e.target);
-      if (e.target != dropdown && e.target != (document.querySelector('.menu__dropdown-inner'))) {
-        dropdown.classList.remove("show");
-        arrow.classList.remove("on");
-        target.classList.remove("active");
-      }
-    });
-  }
-  if (target.getAttribute("data-name") == "blog") {
-    reset(".container-drop", menu);
-    new Drop(
-      "images/menu.jpg", 
-      "акция", 
-      "Блог", 
-      ".container-drop"
+  menu[i].addEventListener("mouseover", function (e) {
+    e.preventDefault();
+    const target = e.target;
+    const arrow = target.children[0];
+    if (target.getAttribute("data-name") == "cosmetic") {
+      reset(".container-drop", menu);
+      new Drop(
+        "images/menu.jpg",
+        "акция",
+        "Косметика",
+        ".container-drop"
       ).render();
-    dropdown.classList.add("show");
-    arrow.classList.add("on");
-    target.classList.add("active");
-    document.addEventListener("click", function (e) {
-      console.log(e.target);
-      if (e.target != dropdown && e.target != (document.querySelector('.menu__dropdown-inner'))) {
-        dropdown.classList.remove("show");
-        arrow.classList.remove("on");
-        target.classList.remove("active");
-      }
-    });
-  }
-});
-  
+      dropdown.classList.add("show");
+      arrow.classList.add("on");
+      target.classList.add("active");
+      document.addEventListener("click", function (e) {
+        console.log(e.target);
+        if (
+          e.target != dropdown &&
+          e.target != document.querySelector(".menu__dropdown-inner")
+        ) {
+          dropdown.classList.remove("show");
+          arrow.classList.remove("on");
+          target.classList.remove("active");
+        }
+      });
+    }
+    if (target.getAttribute("data-name") == "equp") {
+      reset(".container-drop", menu);
+      new Drop(
+        "images/menu.jpg",
+        "акция",
+        "Оборудование",
+        ".container-drop"
+      ).render();
+      dropdown.classList.add("show");
+      arrow.classList.add("on");
+      target.classList.add("active");
+      document.addEventListener("click", function (e) {
+        console.log(e.target);
+        if (
+          e.target != dropdown &&
+          e.target != document.querySelector(".menu__dropdown-inner")
+        ) {
+          dropdown.classList.remove("show");
+          arrow.classList.remove("on");
+          target.classList.remove("active");
+        }
+      });
+    }
+    if (target.getAttribute("data-name") == "bijou") {
+      reset(".container-drop", menu);
+      new Drop(
+        "images/menu.jpg",
+        "акция",
+        "Украшения",
+        ".container-drop"
+      ).render();
+      dropdown.classList.add("show");
+      arrow.classList.add("on");
+      target.classList.add("active");
+      document.addEventListener("click", function (e) {
+        console.log(e.target);
+        if (
+          e.target != dropdown &&
+          e.target != document.querySelector(".menu__dropdown-inner")
+        ) {
+          dropdown.classList.remove("show");
+          arrow.classList.remove("on");
+          target.classList.remove("active");
+        }
+      });
+    }
+    if (target.getAttribute("data-name") == "blog") {
+      reset(".container-drop", menu);
+      new Drop("images/menu.jpg", "акция", "Блог", ".container-drop").render();
+      dropdown.classList.add("show");
+      arrow.classList.add("on");
+      target.classList.add("active");
+      document.addEventListener("click", function (e) {
+        console.log(e.target);
+        if (
+          e.target != dropdown &&
+          e.target != document.querySelector(".menu__dropdown-inner")
+        ) {
+          dropdown.classList.remove("show");
+          arrow.classList.remove("on");
+          target.classList.remove("active");
+        }
+      });
+    }
+  });
 }
 
-
-
-const overlay = document.querySelector('.overlay');
-const overlayMobile = document.querySelector('.overlay__mob');
-const video = document.querySelector('.video');
-const klass = document.querySelector('.class');
+const overlay = document.querySelector(".overlay");
+const overlayMobile = document.querySelector(".overlay__mob");
+const video = document.querySelector(".video");
+const klass = document.querySelector(".class");
 
 function fadeOutOnScroll(element) {
-	if (!element) {
-		return;
-	}
-	
-  const distanceToTop = klass.scrollTop ;
-	const elementHeight = element.offsetHeight;
-	const scrollTop = document.documentElement.scrollTop;
-  
-	let opacity = 1;
-	
-	if (scrollTop > distanceToTop) {
-		opacity = .4-(scrollTop - distanceToTop) /elementHeight ;
-	}
+  if (!element) {
+    return;
+  }
 
-	if (opacity ) {
-		element.style.opacity = opacity;
-	}
+  const distanceToTop = klass.scrollTop;
+  const elementHeight = element.offsetHeight;
+  const scrollTop = document.documentElement.scrollTop;
+
+  let opacity = 1;
+
+  if (scrollTop > distanceToTop) {
+    opacity = 0.4 - (scrollTop - distanceToTop) / elementHeight;
+  }
+
+  if (opacity) {
+    element.style.opacity = opacity;
+  }
 }
 
 function scrollHandler() {
-	fadeOutOnScroll(overlay);
-	fadeOutOnScroll(video);
-	fadeOutOnScroll(overlayMobile);
+  fadeOutOnScroll(overlay);
+  fadeOutOnScroll(video);
+  fadeOutOnScroll(overlayMobile);
 }
 
-window.addEventListener('scroll', scrollHandler);
+window.addEventListener("scroll", scrollHandler);
+
+// const title = Array.from(document.querySelectorAll(".mobile__category-link"));
+// const list = Array.from(document.querySelector(".mobile__subcategory"));
+
+// for(let i=1; i<title.length; i++){
+//   title[i].addEventListener('click', function(e) {
+//     const target = e.target;
+//     console.log(target);
+    
+//     const name = target.getAttribute[data-name];
+//     target.classList.add('rose');
+//     for(let j=1; j<list.length; j++){
+//       if(list[j].getAttribute[data-name] == name){
+//         list[j].style.display = 'block'
+//       }
+//     }
+//   })
+// }
