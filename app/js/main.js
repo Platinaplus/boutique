@@ -12,7 +12,16 @@
       e.preventDefault();
       $(".modal").addClass("visible");
       $("body").addClass("noScroll");
+      $(document).mouseup(function (e){ // событие клика по веб-документу
+        var div = $(".modal__dialog"); // тут указываем ID элемента
+        if (!div.is(e.target) // если клик был не по нашему блоку
+            && div.has(e.target).length === 0) { // и не по его дочерним элементам
+          $('.modal').removeClass('.visible'); // скрываем его
+        }
+      });
     });
+
+    
 
     $(".modal__close").on("click", (e) => {
       $(".modal").removeClass("visible");
@@ -27,8 +36,8 @@
       $(".modal__btn").removeClass("able")
     });
 
-    const regExpValidPhone = /^\d[\d\(\)\ -]{4,14}\d$/;
-    const regExpValidName = /^[a-zA-Zа-яА-Я\-]+\s+[a-zA-Zа-яА-Я\-]+$/;  
+    const regExpValidPhone = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+    const regExpValidName = /^[a-zA-Zа-яА-Я\-\s]+[a-zA-Zа-яА-Я\-\s]+$/;  
     const regExpValidEmail = /^[\w]{1}[\w-\.]*@[\w-]+\.[a-z]{2,4}$/;
 
     function isValid(selector, pattern) {
@@ -102,5 +111,7 @@
         $(".modal__btn").attr("disabled", "disabled");
       }
     }
+
+    $("input[name = phone]").mask("(999) 999-99-99");
   });
 })(jQuery);

@@ -61,7 +61,8 @@ function scripts() {
   "node_modules/rateyo/src/jquery.rateyo.js",
   "node_modules/jquery-form-styler/dist/jquery.formstyler.js",
   "node_modules/jquery.scrollbar/jquery.scrollbar.js",
-  "node_modules/malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.js",
+  "node_modules/jquery.maskedinput/src/jquery.maskedinput.js",
+  "app/js/jquery.mCustomScrollbar.js",
   "app/js/main.js",
   "app/js/script.js"
 ])

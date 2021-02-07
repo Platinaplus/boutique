@@ -3,6 +3,9 @@
   max-width: 1200px;
   padding: 0 15px;
   margin: 0 auto;
+  @media (max-width: 1300px){
+    max-width: 1000px;
+  }
 }
 input:-webkit-autofill, 
 input:-webkit-autofill:hover, 
@@ -21,4 +24,8 @@ body{
   max-width: 1055px;
   padding: 0 15px;
   margin: 0 auto;
+  @media (max-width: 780px){
+    max-width: 450px;
+    padding: 0 10px;
+  }
 }
