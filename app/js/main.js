@@ -1,5 +1,5 @@
 (function ($) {
-  $(window).on("load resize", function () {
+  $(window).on("load", function () {
     $(window).scroll(function () {
       $(".header").toggleClass("scroll", $(this).scrollTop() > 0);
       $(".header").toggleClass("up", $(this).scrollTop() > 10);
@@ -11,12 +11,7 @@
 
     $(".class__btn").on("click", function (e) {
       e.preventDefault();
-      let size;
-      if ($(window).width() > "600") {
-        $(".modal").addClass("visible");
-      } else {
-        $(".modal__mobile").addClass("appear");
-      }
+      $(".modal").addClass("visible");
       $("body").addClass("noScroll");
     });
 
@@ -48,8 +43,8 @@
     }
 
     let phone = false,
-      name = false,
-      email = false;
+        name = false,
+        email = false;
 
     $(".modal__form").on("change", (e) => {
       const target = e.target;
@@ -94,6 +89,7 @@
     });
 
     function isComplate() {
+      $(".modal__btn").removeClass("able");
       let flag = true;
       if (phone == false) flag = false;
       if (name == false) flag = false;
@@ -109,7 +105,7 @@
       }
     }
 
-    $("input[name = phone]").mask("(999) 999-99-99");
+    // $("input[name = phone]").mask("(999) 999-99-99");
 
     //MOBILE MENU-----------------------------------
 
@@ -120,27 +116,26 @@
 
     $(".mobile__links").on("click", function (e) {
       e.preventDefault();
-      let svg = $(this).closest('.mobile__inner').next('.mobile__svg')
-      let svgClose = $(this).closest('.mobile__inner').next('.mobile__close')
+      let svg = $(this).closest(".mobile__inner").next(".mobile__svg");
+      let svgClose = $(this).closest(".mobile__inner").next(".mobile__close");
       console.log(svgClose);
-      
+
       $(".mobile__links").removeClass("rose");
       $(this).addClass("rose");
       $(".mobile__subcategory").removeClass("mobile__subcategory--active");
       $($(this).attr("href")).toggleClass("mobile__subcategory--active");
-      $('.mobile__svg').removeClass('on')
-      $('.mobile__svg--close').removeClass('close')
-      svg.addClass('on');
-      svgClose.addClass('on');
+      $(".mobile__svg").removeClass("on");
+      $(".mobile__svg--close").removeClass("close");
+      svg.addClass("on");
+      svgClose.addClass("on");
     });
 
-    $('.mobile__close').on('click', function(e) {
+    $(".mobile__close").on("click", function (e) {
       console.log(this);
       e.preventDefault();
       $(".mobile__subcategory").removeClass("mobile__subcategory--active");
-      $(this).removeClass('on');
+      $(this).removeClass("on");
       $(".mobile__links").removeClass("rose");
     });
-
   });
 })(jQuery);

@@ -9,17 +9,21 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
+
   &.visible {
     display: flex;
   }
 
-  &__overlay{
+  &__overlay {
     position: absolute;
     top: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, .9);
     z-index: 99;
+    @media (max-width: 600px){
+      background-color: #fff;
+    }
   }
 
   &__dialog {
@@ -27,6 +31,7 @@
     height: 560px;
     overflow: hidden;
     z-index: 100;
+
   }
 
   &__content {
@@ -40,13 +45,15 @@
     position: relative;
     background: #FFFFFF;
     z-index: 200;
-
+    @media (max-width: 600px){
+      width: 100%;
+    }
     @media (max-width: 450px) {
       padding: 0 5px 0 10px;
     }
   }
 
-  &__form{
+  &__form {
     padding-bottom: 15px;
   }
 
@@ -74,11 +81,13 @@
       right: 20px;
       top: 50%;
       transform: translateY(23%);
-      @media (max-width:550px){
+
+      @media (max-width:550px) {
         right: 45px;
         transform: translateY(23%);
       }
-      @media (max-width:450px){
+
+      @media (max-width:450px) {
         right: 35px;
         transform: translateY(20%);
       }
@@ -95,11 +104,13 @@
       right: 20px;
       top: 50%;
       transform: translateY(23%);
-      @media (max-width:550px){
+
+      @media (max-width:550px) {
         right: 45px;
         transform: translateY(23%);
       }
-      @media (max-width:450px){
+
+      @media (max-width:450px) {
         right: 35px;
         transform: translateY(20%);
       }
@@ -120,9 +131,10 @@
     }
 
     &.invalid {
-      input{
+      input {
         border: 2px solid #F08B98;
       }
+
       &::after {
         display: block;
       }
@@ -168,6 +180,7 @@
     @media (max-width: 450px) {
       width: 281px;
     }
+
     @media (max-width: 330px) {
       width: 270px;
     }
@@ -234,6 +247,7 @@
 
   &__label--text {
     display: flex;
+
     &::after,
     &::before {
       display: none;
@@ -293,7 +307,7 @@
     &.appear {
       display: flex;
     }
-    
+
   }
 }
 
@@ -308,6 +322,7 @@
 
 .mCSB_draggerRail {
   width: 4px !important;
+
   @media (max-width: 450px) {
     margin: 0 !important;
   }

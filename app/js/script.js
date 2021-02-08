@@ -177,7 +177,7 @@ function fadeOutOnScroll(element) {
   let opacity = 1;
 
   if (scrollTop > distanceToTop) {
-    opacity = 0.4 - (scrollTop - distanceToTop) / elementHeight;
+    opacity = 0.3 - (scrollTop - distanceToTop) / elementHeight;
   }
 
   if (opacity) {
@@ -193,20 +193,3 @@ function scrollHandler() {
 
 window.addEventListener("scroll", scrollHandler);
 
-// const title = Array.from(document.querySelectorAll(".mobile__category-link"));
-// const list = Array.from(document.querySelector(".mobile__subcategory"));
-
-// for(let i=1; i<title.length; i++){
-//   title[i].addEventListener('click', function(e) {
-//     const target = e.target;
-//     console.log(target);
-    
-//     const name = target.getAttribute[data-name];
-//     target.classList.add('rose');
-//     for(let j=1; j<list.length; j++){
-//       if(list[j].getAttribute[data-name] == name){
-//         list[j].style.display = 'block'
-//       }
-//     }
-//   })
-// }
