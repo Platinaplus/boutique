@@ -9,16 +9,26 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-color: rgba(0, 0, 0, .9);
+  // background-color: rgba(0, 0, 0, .9);
 
   &.visible {
     display: flex;
+  }
+
+  &__overlay{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .9);
+    z-index: 99;
   }
 
   &__dialog {
     border-radius: 15px;
     height: 560px;
     overflow: hidden;
+    z-index: 100;
   }
 
   &__content {
@@ -28,13 +38,13 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     position: relative;
     background: #FFFFFF;
     z-index: 200;
 
     @media (max-width: 550px) {
-      height: 490px;
-      align-items: center;
+      height: 100%;
     }
 
     @media (max-width: 450px) {

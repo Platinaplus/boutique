@@ -20,7 +20,7 @@
       $("body").addClass("noScroll");
     });
 
-    $(".modal__close").on("click", (e) => {
+    $(".modal__close, .modal__overlay").on("click", (e) => {
       $(".modal").removeClass("visible");
       $(".modal__mobile").removeClass("appear");
       $("body").removeClass("noScroll");
@@ -140,7 +140,7 @@
       $(".mobile__subcategory").removeClass("mobile__subcategory--active");
       $(this).removeClass('on');
       $(".mobile__links").removeClass("rose");
-    })
+    });
 
   });
 })(jQuery);
