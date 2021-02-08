@@ -24,19 +24,19 @@
     align-items: center;
   }
 
-    &.scroll {
-      position: fixed;
-    }
+  &.scroll {
+    position: fixed;
+  }
 
   &__btn {
     position: relative;
     width: 23px;
     height: 13px;
-    padding: 10px;
+    padding: 20px;
     outline: none;
 
-    &::after{
-      content:"";
+    &::after {
+      content: "";
       background-image: url('../images/burger.svg');
       background-repeat: no-repeat;
       background-size: contain;
@@ -47,8 +47,9 @@
       left: 50%;
       transform: translate(-50%, -50%);
     }
-    &::before{
-      content:"";
+
+    &::before {
+      content: "";
       background-image: url('../images/close.svg');
       background-repeat: no-repeat;
       background-size: contain;
@@ -60,18 +61,22 @@
       transform: translate(-50%, -50%);
       display: none;
     }
+
     display: none;
+
     @media (max-width: 1000px) {
       display: block;
     }
-    &.close{
-      &::after{
+
+    &.close {
+      &::after {
         display: none;
       }
-      &::before{
-       display: block;
+
+      &::before {
+        display: block;
       }
-      
+
     }
   }
 
@@ -175,12 +180,12 @@
     position: relative;
   }
 
-  &__arrow{
+  &__arrow {
     width: 14px;
     height: 14px;
     background-color: #fff;
     border-right: 1px solid #F08B98;
-    border-top:1px solid #F08B98;
+    border-top: 1px solid #F08B98;
     transform: rotate(-45deg) translateX(-50%);
     position: absolute;
     bottom: -26px;
@@ -198,7 +203,8 @@
     padding-left: 38px;
     padding-right: 13px;
     transition: .3s;
-    z-index:50;
+    z-index: 50;
+
     &:hover,
     &.active {
       color: #F08B98;
@@ -206,7 +212,8 @@
       svg path {
         stroke: #F08B98;
       }
-      .menu__arrow{
+
+      .menu__arrow {
         opacity: 1;
       }
     }
@@ -410,13 +417,15 @@
   }
 }
 
+
 .shop {
-  max-width: 1300px;
-  min-width: 1300px;
+  width: 1300px;
+  min-height: 700px;
   background-color: #fff;
   padding: 25px 10px 35px 10px;
   border-top-left-radius: 28px;
   border-top-right-radius: 28px;
+  margin-bottom: -400px;
 
   &__items {
     display: flex;
@@ -424,6 +433,20 @@
 
     @media (max-width: 780px) {
       flex-wrap: wrap;
+    }
+  }
+
+  &__title {
+    @extend %museo-700;
+    font-size: 28px;
+    line-height: 34px;
+    margin: 0 auto 33px;
+    max-width: 663px;
+    text-align: center;
+
+    @media (max-width:500px) {
+      font-size: 22px;
+      line-height: 30px;
     }
   }
 
@@ -452,20 +475,7 @@
     margin-bottom: 10px;
   }
 
-  &__title {
-    @extend %museo-700;
-    font-size: 28px;
-    line-height: 34px;
-    margin: 0 auto 33px;
-    max-width: 663px;
-    text-align: center;
 
-    @media (max-width:1300px) {
-      font-size: 22px;
-      line-height: 30px;
-      max-width: 236px;
-    }
-  }
 
   &__name {
     @extend %museoSans;
@@ -485,18 +495,21 @@
   }
 
   @media (max-width:1300px) {
-    max-width: 750px;
-    min-width: 750px;
+    width: 750px;
   }
 
   @media (max-width: 780px) {
-    max-width: 450px;
-    min-width: 450px;
+    width: 450px;
+    margin-bottom: -525px;
+
   }
 
   @media (max-width: 500px) {
-    max-width: 300px;
-    min-width: 300px;
+    width: 300px;
+
+  }
+  @media (max-width: 330px) {
+      margin-bottom: -455px;
   }
 }
 
