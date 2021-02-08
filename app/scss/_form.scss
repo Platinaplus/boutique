@@ -23,7 +23,7 @@
 
   &__content {
     padding: 20px 6px 22px 30px;
-    max-width: 505px;
+    max-width: 510px;
     height: 560px;
     display: flex;
     flex-direction: column;
@@ -63,7 +63,7 @@
       background-image: url('../images/error.png');
       background-repeat: no-repeat;
       position: absolute;
-      right: 35px;
+      right: 20px;
       top: 50%;
       transform: translateY(7%);
     }
@@ -76,7 +76,7 @@
       background-image: url('../images/ok.png');
       background-repeat: no-repeat;
       position: absolute;
-      right: 35px;
+      right: 20px;
       top: 50%;
       transform: translateY(7%);
     }

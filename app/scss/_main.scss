@@ -175,6 +175,20 @@
     position: relative;
   }
 
+  &__arrow{
+    width: 14px;
+    height: 14px;
+    background-color: #fff;
+    border-right: 1px solid #F08B98;
+    border-top:1px solid #F08B98;
+    transform: rotate(-45deg) translateX(-50%);
+    position: absolute;
+    bottom: -26px;
+    right: calc((100% - 38px)/2);
+    opacity: 0;
+    transition: .8s;
+  }
+
   &__item:not(:last-child) {
     margin-right: 30px;
   }
@@ -184,13 +198,16 @@
     padding-left: 38px;
     padding-right: 13px;
     transition: .3s;
-
+    z-index:50;
     &:hover,
     &.active {
       color: #F08B98;
 
       svg path {
         stroke: #F08B98;
+      }
+      .menu__arrow{
+        opacity: 1;
       }
     }
 
