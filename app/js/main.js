@@ -35,7 +35,7 @@
 
     function isValid(selector, pattern) {
       let value = $(selector).val();
-      if (pattern.test(value) && value) {
+      if (pattern.test(value) && value != 0) {
         return true;
       } else {
         return false;
@@ -137,5 +137,6 @@
       $(this).removeClass("on");
       $(".mobile__links").removeClass("rose");
     });
+
   });
 })(jQuery);
