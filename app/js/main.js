@@ -29,24 +29,30 @@
       $(".modal__btn").removeClass("able");
     });
 
-    const regExpValidPhone = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+    const regExpValidPhone = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{6,10}$/;
     const regExpValidName = /^[a-zA-Zа-яА-Я\-\s]+[a-zA-Zа-яА-Я\-\s]+$/;
     const regExpValidEmail = /^[\w]{1}[\w-\.]*@[\w-]+\.[a-z]{2,4}$/;
 
     function isValid(selector, pattern) {
       let value = $(selector).val();
-      if (pattern.test(value) && value != 0) {
+      if (pattern.test(value) && value != null) {
         return true;
       } else {
         return false;
       }
     }
-
     let phone = false,
         name = false,
         email = false;
+    $('input[type = "tel"]').on('input', (e) =>{
+      let value = $('input[type = "tel"]').val();
+      const reg = /[A-Za-zА-Яа-яЁё]/g;
+      $('input[type = "tel"]').val(value.replace(reg, ''))
+    })
 
-    $(".modal__form").on("change", (e) => {
+    $(".modal__form").on("focusout", (e) => {
+      console.log('true');
+      
       const target = e.target;
       const parent = target.closest(".modal__label");
 
@@ -111,6 +117,7 @@
 
     $(".header__btn").on("click", (e) => {
       $(".mobile").toggleClass("mobile-show");
+      $(".header").toggleClass("header-white")
       $(".header__btn").toggleClass("close");
     });
 

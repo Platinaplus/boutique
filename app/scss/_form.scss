@@ -31,7 +31,12 @@
     height: 560px;
     overflow: hidden;
     z-index: 100;
-
+    @media (max-width: 376px){
+      margin-top: 50px;
+    }
+    @media (max-width: 320px){
+      margin-top: 130px;
+    }
   }
 
   &__content {
@@ -75,7 +80,7 @@
       display: none;
       width: 20px;
       height: 20px;
-      background-image: url('../images/error.png');
+      background-image: url('../images/error.svg');
       background-repeat: no-repeat;
       position: absolute;
       right: 20px;
@@ -98,7 +103,7 @@
       content: "";
       width: 20px;
       height: 20px;
-      background-image: url('../images/ok.png');
+      background-image: url('../images/ok.svg');
       background-repeat: no-repeat;
       position: absolute;
       right: 20px;
@@ -145,6 +150,12 @@
 
       .modal__error {
         display: block;
+      }
+    }
+    span{
+      @media (max-width:450px){
+        position: absolute;
+        right: 21px;
       }
     }
   }
@@ -328,3 +339,4 @@
     margin: 0 !important;
   }
 }
+
